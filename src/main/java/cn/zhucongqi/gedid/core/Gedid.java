@@ -1,16 +1,26 @@
 package cn.zhucongqi.gedid.core;
 
-import cn.zhucongqi.gedid.GedidConfig;
+import cn.zhucongqi.gedid.core.dc.GedidDC;
 
-public class Gedid implements GedidBuilder {
-
-	public Gedid(String bizName, GedidConfig config) {
-		
+public class Gedid {
+	
+	private final static String GEDID_PREFIX = "gedid_";
+	
+	private GedidDC dc;
+	
+	public Gedid(String name, GedidDC dc) {
+		this.dc = dc;
+		this.dc.follow(this.getName(name));
 	}
 
-	@Override
+	/**
+	 * Get next Id.
+	 */
 	public long next() {
-		return 0L;
+		return this.dc.incr();
 	}
 	
+	private String getName(String name) {
+		return GEDID_PREFIX + name;
+	}
 }

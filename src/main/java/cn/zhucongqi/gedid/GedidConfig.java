@@ -58,6 +58,17 @@ public class GedidConfig {
 	public void setAuth(String auth) {
 		this.auth = auth;
 	}
+	
+	/**
+	 * Redis Default Config<br/>
+	 * host: 127.0.0.1; Port: 6379.
+	 */
+	public static GedidConfig defaultConfig() {
+		GedidConfig config = new GedidConfig();
+		config.setIp("127.0.0.1");
+		config.setPort(6379);
+		return config;
+	}
 
 	@Override
 	public String toString() {
