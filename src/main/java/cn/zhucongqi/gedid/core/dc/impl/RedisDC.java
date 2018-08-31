@@ -43,9 +43,13 @@ public class RedisDC implements GedidDC {
 	@Override
 	public long incr() {
 		this.lock.lock();
-		long ret = this.jedis.incr(this.name);
-		this.lock.unlock();
-		return ret;
+		long current = 0L;
+		try {
+			current = this.jedis.incr(this.name);
+		} finally {
+			this.lock.unlock();
+		}
+		return current;
 	}
 	
 }

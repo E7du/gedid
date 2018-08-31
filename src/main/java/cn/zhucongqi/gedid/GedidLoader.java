@@ -18,9 +18,8 @@ public class GedidLoader {
 	 */
 	private ConcurrentHashMap<String, Gedid> bisMapping;
 	
-	public GedidLoader(GedidConfig config) {
-		this.dc = new RedisDC(config);
-		this.bisMapping = new ConcurrentHashMap<String, Gedid>();
+	public static GedidLoader init(GedidConfig config) {
+		return (new GedidLoader(config));
 	}
 	
 	/**
@@ -35,6 +34,11 @@ public class GedidLoader {
 		Gedid gedid = new Gedid(bisName, this.dc);
 		this.bisMapping.put(bisName, gedid);
 		return gedid;
+	}
+	
+	private GedidLoader(GedidConfig config) {
+		this.dc = new RedisDC(config);
+		this.bisMapping = new ConcurrentHashMap<String, Gedid>();
 	}
 
 }
