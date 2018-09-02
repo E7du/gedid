@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>cn.zhucongqi</groupId>
 	<artifactId>gedid</artifactId>
-	<version>0.0.1</version>
+	<version>0.0.2</version>
 	<name>gedid</name>
 	<description>The orderly id generate system.</description>
 	<url>https://github.com/E7du/gedid</url>

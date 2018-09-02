@@ -41,6 +41,10 @@ public class GedidLoader {
 	 * @return Gedid instance.
 	 */
 	public Gedid follow(String bisName) {
+		if (null == bisName || "".equals(bisName)) {
+			throw (new GedidException("The bisname cannot be Empty."));
+		}
+		
 		if (this.bisMapping.containsKey(bisName)) {
 			return this.bisMapping.get(bisName);
 		}

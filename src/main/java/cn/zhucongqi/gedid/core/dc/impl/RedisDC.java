@@ -57,6 +57,8 @@ public class RedisDC implements GedidDC {
 	@Override
 	public boolean follow(String name) {
 		this.name = name;
+		// if the key (this.name) cannot be exist, create and set the value with `this.startId - 1`.<br/>
+		// if the key (this.name) is existed , no operation is performed.
 		this.jedis.setnx(this.name, String.valueOf((this.startId - 1)));
 		return true;
 	}
