@@ -1,5 +1,11 @@
-# gedid 
-Generate distributed and orderly id generate thread safety system.
+# Gedid 
+The Generate distributed id system.
+
+# features
+
+- distributed;
+- orderly;
+- thread safety.
 
 # How to use?
 
