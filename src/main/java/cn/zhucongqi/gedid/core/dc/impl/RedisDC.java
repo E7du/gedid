@@ -62,7 +62,7 @@ public class RedisDC implements GedidDC {
 	}
 
 	@Override
-	public long incr() {
+	public Long incr() {
 		this.lock.lock();
 		long nextId = 0L;
 		try {

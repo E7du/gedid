@@ -33,7 +33,7 @@ class GedidLoaderTest {
 	void test() {
 		Gedid user = loader.follow("user");
 		
-		long id = user.next();
+		Long id = user.next();
 		System.out.println(id);
 		
 		Gedid order = loader.follow("order");
@@ -47,7 +47,7 @@ class GedidLoaderTest {
 					GedidLoader loader = GedidLoader.init(GedidConfig.defaultConfig());
 					Gedid user = loader.follow("user");
 					
-					long id = user.next();
+					Long id = user.next();
 					System.out.println("A"+id+"j= "+j);
 				}
 			}
@@ -60,7 +60,7 @@ class GedidLoaderTest {
 					GedidLoader loader = GedidLoader.init(GedidConfig.defaultConfig());
 					Gedid user = loader.follow("user");
 					
-					long id = user.next();
+					Long id = user.next();
 					System.out.println("B"+id+"j= "+j);
 				}
 			}

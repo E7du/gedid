@@ -28,6 +28,6 @@ public interface GedidDC {
 	 * Increment id.
 	 * @return
 	 */
-	long incr();
+	Long incr();
 	
 }
