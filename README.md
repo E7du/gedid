@@ -1,2 +1,2 @@
 # gedid 
-The orderly id generate system.
+Generate distributed and orderly id generate system.

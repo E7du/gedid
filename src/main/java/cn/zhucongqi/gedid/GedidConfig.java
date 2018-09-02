@@ -3,20 +3,25 @@ package cn.zhucongqi.gedid;
 public class GedidConfig {
 
 	/**
-	 * Redis Server Ip
+	 * DC Server Ip
 	 */
 	private String ip;
 	
 	/**
-	 * Redis server port
+	 * DC server port
 	 */
 	private Integer port;
 	
 	/**
-	 * Redis auth password
+	 * DC(Redis) auth password
 	 */
 	private String auth;
-
+	
+	/**
+	 * The Start ID default 1
+	 */
+	private Integer startId;
+	
 	/**
 	 * @return the ip
 	 */
@@ -60,11 +65,26 @@ public class GedidConfig {
 	}
 	
 	/**
+	 * @return the startId
+	 */
+	public Integer getStartId() {
+		return startId;
+	}
+
+	/**
+	 * @param startId the startId to set
+	 */
+	public void setStartId(Integer startId) {
+		this.startId = startId;
+	}
+
+	/**
 	 * Redis Default Config<br/>
 	 * host: 127.0.0.1; Port: 6379.
 	 */
 	public static GedidConfig defaultConfig() {
 		GedidConfig config = new GedidConfig();
+		config.startId = 1;
 		config.setIp("127.0.0.1");
 		config.setPort(6379);
 		return config;
@@ -72,7 +92,7 @@ public class GedidConfig {
 
 	@Override
 	public String toString() {
-		return "GedidConfig [ip=" + ip + ", port=" + port + ", auth=" + auth + "]";
+		return "GedidConfig [ip=" + ip + ", port=" + port + ", auth=" + auth + ", startId=" + startId + "]";
 	}
 	
 }

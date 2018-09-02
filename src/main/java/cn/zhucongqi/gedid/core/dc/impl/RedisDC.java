@@ -20,6 +20,11 @@ public class RedisDC implements GedidDC {
 	private String name;
 	
 	/**
+	 * Start Id
+	 */
+	private Integer startId;
+	
+	/**
 	 * Resources lock.
 	 */
 	private final Lock lock;
@@ -30,26 +35,27 @@ public class RedisDC implements GedidDC {
 		if (null != auth && !"".equals(auth)) {
 			this.jedis.auth(auth);
 		}
+		this.startId = config.getStartId();
 		this.lock = new ReentrantLock();
 	}
 
 	@Override
 	public boolean follow(String name) {
 		this.name = name;
-		this.jedis.setnx(this.name, "0");
+		this.jedis.setnx(this.name, String.valueOf((this.startId - 1)));
 		return true;
 	}
 
 	@Override
 	public long incr() {
 		this.lock.lock();
-		long current = 0L;
+		long nextId = 0L;
 		try {
-			current = this.jedis.incr(this.name);
+			nextId = this.jedis.incr(this.name);
 		} finally {
 			this.lock.unlock();
 		}
-		return current;
+		return nextId;
 	}
 	
 }

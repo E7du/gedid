@@ -3,15 +3,13 @@ package cn.zhucongqi.gedid;
 import java.util.concurrent.ConcurrentHashMap;
 
 import cn.zhucongqi.gedid.core.Gedid;
-import cn.zhucongqi.gedid.core.dc.GedidDC;
-import cn.zhucongqi.gedid.core.dc.impl.RedisDC;
 
 public class GedidLoader {
 	
 	/**
-	 * Gedid Data Center
+	 * Gedid Config
 	 */
-	private GedidDC dc;
+	private GedidConfig config;
 	
 	/**
 	 * Business Mapping
@@ -31,13 +29,13 @@ public class GedidLoader {
 		if (this.bisMapping.containsKey(bisName)) {
 			return this.bisMapping.get(bisName);
 		}
-		Gedid gedid = new Gedid(bisName, this.dc);
+		Gedid gedid = new Gedid(bisName, this.config);
 		this.bisMapping.put(bisName, gedid);
 		return gedid;
 	}
 	
 	private GedidLoader(GedidConfig config) {
-		this.dc = new RedisDC(config);
+		this.config = config;
 		this.bisMapping = new ConcurrentHashMap<String, Gedid>();
 	}
 
