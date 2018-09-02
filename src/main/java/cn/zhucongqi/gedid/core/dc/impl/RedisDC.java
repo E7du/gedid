@@ -47,7 +47,7 @@ public class RedisDC implements GedidDC {
 	public RedisDC(GedidConfig config) {
 		this.jedis = new Jedis(config.getIp(), config.getPort());
 		String auth = config.getAuth();
-		if (null != auth && !"".equals(auth)) {
+		if (null != auth && !"".equals(auth.trim())) {
 			this.jedis.auth(auth);
 		}
 		this.startId = config.getStartId();

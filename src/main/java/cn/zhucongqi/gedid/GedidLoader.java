@@ -54,6 +54,7 @@ public class GedidLoader {
 	}
 	
 	private GedidLoader(GedidConfig config) {
+		//TODO validate the config
 		this.config = config;
 		this.bisMapping = new ConcurrentHashMap<String, Gedid>();
 	}
