@@ -41,7 +41,7 @@ public class GedidLoader {
 	 * @return Gedid instance.
 	 */
 	public Gedid follow(String bisName) {
-		if (null == bisName || "".equals(bisName)) {
+		if (null == bisName || "".equals(bisName.trim())) {
 			throw (new GedidException("The bisname cannot be Empty."));
 		}
 		
