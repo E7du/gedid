@@ -1,6 +1,8 @@
 # Gedid 
 The Generate distributed id system.
 
+![maven](https://img.shields.io/maven-central/v/cn.zhucongqi/gedid.svg)
+
 # features
 
 - distributed;
