@@ -31,6 +31,11 @@ public class GedidLoader {
 	 */
 	private ConcurrentHashMap<String, Gedid> bisMapping;
 	
+	/**
+	 * Init Gedid Loader
+	 * @param config
+	 * @return loader instance
+	 */
 	public static GedidLoader init(GedidConfig config) {
 		return (new GedidLoader(config));
 	}
