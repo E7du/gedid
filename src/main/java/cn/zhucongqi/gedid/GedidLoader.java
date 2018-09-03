@@ -18,6 +18,7 @@ package cn.zhucongqi.gedid;
 import java.util.concurrent.ConcurrentHashMap;
 
 import cn.zhucongqi.gedid.core.Gedid;
+import cn.zhucongqi.gedid.kit.StrKit;
 
 public class GedidLoader {
 	
@@ -46,7 +47,7 @@ public class GedidLoader {
 	 * @return Gedid instance.
 	 */
 	public Gedid follow(String bisName) {
-		if (null == bisName || "".equals(bisName.trim())) {
+		if (StrKit.isBlank(bisName)) {
 			throw (new GedidException("The bisname cannot be Empty."));
 		}
 		
@@ -59,7 +60,16 @@ public class GedidLoader {
 	}
 	
 	private GedidLoader(GedidConfig config) {
-		//TODO validate the config
+		if (null == config) {
+			throw (new GedidException("The config cannot be null."));
+		}
+		if (StrKit.isBlank(config.getIp())) {
+			throw (new GedidException("The config's ip cannot be null."));
+		}
+		if (0 == config.getPort()) {
+			throw (new GedidException("Set the config's port."));
+		}
+		
 		this.config = config;
 		this.bisMapping = new ConcurrentHashMap<String, Gedid>();
 	}
