@@ -26,5 +26,5 @@ Gedid user = loader.follow("user");
 - Step3: get business id
 
 ```java
-long id = user.next();
+Long id = user.next();
 ```
