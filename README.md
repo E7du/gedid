@@ -1,4 +1,4 @@
-# Gedid 
+# Gedid : UnSupported !!! merged into [spring-boot-x](https://github.com/OpeningO/spring-boot-x/tree/master/src/main/java/org/openingo/spring/gedid)
 The Generate distributed id system.
 
 ![maven](https://img.shields.io/maven-central/v/cn.zhucongqi/gedid.svg)
